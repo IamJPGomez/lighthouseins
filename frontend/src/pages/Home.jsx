@@ -44,12 +44,12 @@ export const Home = () => {
               
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gold">10+</div>
+                  <div className="!font-bold !text-3xl text-gold">20+</div>
                   <div className="text-sm text-slate mt-1">Years Experience</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gold">4.9</div>
-                  <div className="text-sm text-slate mt-1">Star Rating</div>
+                  <div className="!text-sm mt-1 text-slate">Google Rating</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gold">100%</div>
@@ -67,24 +67,24 @@ export const Home = () => {
                   <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <Shield className="w-12 h-12 text-gold" />
                     <div>
-                      <div className="text-white font-semibold text-lg">Comprehensive Coverage</div>
-                      <div className="text-gray-light text-sm">Tailored to your needs</div>
+                      <div className="!font-semibold !text-lg text-white">Real Protection, Real People</div>
+                      <div className="!text-sm text-gray-light">Coverage explained clearly, tailored to your life.</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <Award className="w-12 h-12 text-gold" />
                     <div>
-                      <div className="text-white font-semibold text-lg">Best Rates Guaranteed</div>
-                      <div className="text-gray-light text-sm">Competitive pricing</div>
+                      <div className="!font-semibold !text-lg text-white">Your Advocate on Price & Protection</div>
+                      <div className="!text-sm text-gray-light">We compare carriers to protect your wallet and your risk.</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <Clock className="w-12 h-12 text-gold" />
                     <div>
-                      <div className="text-white font-semibold text-lg">Always Available</div>
-                      <div className="text-gray-light text-sm">Responsive support</div>
+                      <div className="!font-semibold !text-lg text-white">Here When You Need Us</div>
+                      <div className="!text-sm text-gray-light">Fast responses from people who know your name.</div>
                     </div>
                   </div>
                 </div>
@@ -120,8 +120,8 @@ export const Home = () => {
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
-                </Card>
-              );
+                </Card>);
+
             })}
           </div>
         </div>
@@ -133,21 +133,21 @@ export const Home = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">What Our Clients Say</h2>
             <div className="flex items-center justify-center space-x-2 mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-6 h-6 text-gold fill-gold" />
-              ))}
+              {[1, 2, 3, 4, 5].map((star) =>
+              <Star key={star} className="w-6 h-6 text-gold fill-gold" />
+              )}
               <span className="text-xl font-semibold text-navy ml-2">{mockData.businessInfo.rating} out of 5</span>
             </div>
             <p className="text-slate">Based on {mockData.businessInfo.reviewCount} Google reviews</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {mockData.reviews.slice(0, 3).map((review) => (
-              <Card key={review.id} className="p-6 bg-white hover:shadow-lg transition-shadow">
+            {mockData.reviews.slice(0, 3).map((review) =>
+            <Card key={review.id} className="p-6 bg-white hover:shadow-lg transition-shadow">
                 <div className="flex items-center space-x-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-4 h-4 text-gold fill-gold" />
-                  ))}
+                  {[1, 2, 3, 4, 5].map((star) =>
+                <Star key={star} className="w-4 h-4 text-gold fill-gold" />
+                )}
                 </div>
                 <p className="text-slate mb-4 leading-relaxed">"{review.text}"</p>
                 <div className="flex items-center justify-between">
@@ -155,7 +155,7 @@ export const Home = () => {
                   <div className="text-sm text-slate">{review.date}</div>
                 </div>
               </Card>
-            ))}
+            )}
           </div>
           
           <div className="text-center mt-12">
@@ -193,6 +193,6 @@ export const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 };
