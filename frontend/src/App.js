@@ -6,6 +6,8 @@ import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Services } from "./pages/Services";
+import { Blog } from "./pages/Blog";
+import { BlogPost } from "./pages/BlogPost";
 import { Reviews } from "./pages/Reviews";
 import { Contact } from "./pages/Contact";
 
@@ -19,6 +21,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
