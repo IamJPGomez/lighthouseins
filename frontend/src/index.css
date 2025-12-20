@@ -82,6 +82,52 @@ code {
     }
 }
 
+/* Custom Brand Colors */
+@layer utilities {
+  .bg-navy {
+    background-color: #1f3549;
+  }
+  .text-navy {
+    color: #1f3549;
+  }
+  .bg-gold {
+    background-color: #b2965b;
+  }
+  .text-gold {
+    color: #b2965b;
+  }
+  .bg-gold-hover {
+    background-color: #a58850;
+  }
+  .text-gray-light {
+    color: #9ea5a8;
+  }
+  .text-slate {
+    color: #656a66;
+  }
+  .bg-beige {
+    background-color: #d6d5ce;
+  }
+  .border-navy {
+    border-color: #1f3549;
+  }
+  .border-gold {
+    border-color: #b2965b;
+  }
+  .fill-gold {
+    fill: #b2965b;
+  }
+  .hover\:text-gold:hover {
+    color: #b2965b;
+  }
+  .hover\:bg-gold:hover {
+    background-color: #b2965b;
+  }
+  .hover\:border-gold:hover {
+    border-color: #b2965b;
+  }
+}
+
 @layer base {
     [data-debug-wrapper="true"] {
         display: contents !important;
