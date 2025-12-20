@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Users, Target, Heart } from 'lucide-react';
+import { CheckCircle, Users, Target, Heart, Clock } from 'lucide-react';
 import { Card } from '../components/ui/card';
 import { mockData } from '../mock';
 
