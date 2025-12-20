@@ -25,12 +25,24 @@ export const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center">
-              <span className="text-gold text-2xl font-bold">L</span>
-            </div>
-            <div>
-              <div className="text-navy font-bold text-lg leading-tight">Lighthouse</div>
-              <div className="text-slate text-xs">Insurance Agency</div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_2bb91f8b-019e-485a-ba3d-6f80e8f45f7f/artifacts/ek1q78r2_lighthouse.ai" 
+              alt="Lighthouse Insurance Agency Logo" 
+              className="h-16 w-auto"
+              onError={(e) => {
+                // Fallback if image fails to load
+                e.target.style.display = 'none';
+                e.target.nextElementSibling.style.display = 'flex';
+              }}
+            />
+            <div className="flex items-center space-x-3" style={{display: 'none'}}>
+              <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center">
+                <span className="text-gold text-2xl font-bold">L</span>
+              </div>
+              <div>
+                <div className="text-navy font-bold text-lg leading-tight">Lighthouse</div>
+                <div className="text-slate text-xs">Insurance Agency</div>
+              </div>
             </div>
           </Link>
           
