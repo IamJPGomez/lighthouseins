@@ -10,27 +10,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_2bb91f8b-019e-485a-ba3d-6f80e8f45f7f/artifacts/ek1q78r2_lighthouse.ai" 
-                alt="Lighthouse Insurance Agency Logo" 
-                className="h-12 w-auto"
-                onError={(e) => {
-                  // Fallback if image fails to load
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'flex';
-                }}
-              />
-              <div className="flex items-center space-x-3" style={{display: 'none'}}>
-                <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
-                  <span className="text-navy text-xl font-bold">L</span>
-                </div>
-                <div>
-                  <div className="text-white font-bold text-base leading-tight">Lighthouse</div>
-                  <div className="text-gray-light text-xs">Insurance Agency</div>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/lighthouse-logo.svg" 
+              alt="Lighthouse Insurance Agency" 
+              className="h-12 w-auto"
+            />
             <p className="text-sm text-gray-light leading-relaxed">
               Your trusted insurance partner in Sunrise, Florida. Providing personalized coverage solutions since day one.
             </p>
