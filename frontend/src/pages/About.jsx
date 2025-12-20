@@ -40,7 +40,7 @@ export const About = () => {
             <div className="bg-navy rounded-2xl p-8 shadow-xl">
               <div className="space-y-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <div className="text-gold text-4xl font-bold mb-2">10+</div>
+                  <div className="!font-bold !text-4xl mb-2 text-gold">20+</div>
                   <div className="text-white font-semibold">Years of Experience</div>
                   <div className="text-gray-light text-sm mt-2">Serving the Sunrise community</div>
                 </div>
@@ -76,7 +76,7 @@ export const About = () => {
             {mockData.whyChooseUs.map((item, index) => {
               const icons = [Users, Target, Clock, Heart];
               const IconComponent = icons[index];
-              
+
               return (
                 <Card key={index} className="p-6 bg-white hover:shadow-xl transition-all hover:-translate-y-1">
                   <div className="w-14 h-14 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
@@ -84,8 +84,8 @@ export const About = () => {
                   </div>
                   <h3 className="text-xl font-bold text-navy mb-3">{item.title}</h3>
                   <p className="text-slate leading-relaxed">{item.description}</p>
-                </Card>
-              );
+                </Card>);
+
             })}
           </div>
         </div>
@@ -151,6 +151,6 @@ export const About = () => {
           </a>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 };
