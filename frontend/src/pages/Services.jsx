@@ -12,7 +12,7 @@ export const Services = () => {
       benefits: [
         "Comprehensive coverage options",
         "Competitive rates and discounts",
-        "Fast claims processing",
+        "Fast quoting",
         "Flexible payment plans",
         "24/7 roadside assistance available"
       ]
