@@ -25,21 +25,21 @@ export const Services = () => {
     {
       ...mockData.services[0],
       benefits: [
-        "Access to multiple carrier options tailored to your needs",
-        "Experienced guidance on Florida's unique insurance requirements",
-        "Personalized service from local professionals who understand your area",
-        "Policy reviews to ensure your coverage evolves with you",
-        "Support available when you need it most"
+        "Comprehensive coverage options",
+        "Competitive rates and discounts",
+        "Fast quoting",
+        "Flexible payment plans",
+        "24/7 roadside assistance available"
       ]
     },
     {
       ...mockData.services[1],
       benefits: [
-        "Access to multiple carrier options tailored to your needs",
-        "Experienced guidance on Florida's unique insurance requirements",
-        "Personalized service from local professionals who understand your area",
-        "Policy reviews to ensure your coverage evolves with you",
-        "Support available when you need it most"
+        "Fleet insurance solutions",
+        "Business protection coverage",
+        "Multiple vehicle discounts",
+        "Specialized industry coverage",
+        "Dedicated business support"
       ]
     },
     {
