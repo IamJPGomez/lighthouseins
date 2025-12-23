@@ -107,6 +107,7 @@ export const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {mockData.services.map((service) => {
               const IconComponent = require('lucide-react')[service.icon];
+              const sectionId = service.title.toLowerCase().replace(/\s+/g, '-');
               return (
                 <Card key={service.id} className="p-8 hover:shadow-xl transition-all hover:-translate-y-1 border-2 border-transparent hover:border-gold">
                   <div className="w-16 h-16 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
@@ -114,7 +115,7 @@ export const Home = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-navy mb-4">{service.title}</h3>
                   <p className="text-slate mb-6 leading-relaxed">{service.description}</p>
-                  <Link to="/services">
+                  <Link to={`/services#${sectionId}`}>
                     <Button variant="outline" className="w-full border-gold text-navy hover:bg-gold hover:text-navy font-semibold transition-all">
                       Learn More
                       <ArrowRight className="ml-2 w-4 h-4" />
