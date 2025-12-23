@@ -214,15 +214,31 @@ export const Contact = () => {
                 </div>
               </Card>
               
-              {/* Map Placeholder */}
-              <Card className="p-6 bg-gray-100">
-                <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-gray-500 font-semibold">Map Location</p>
-                    <p className="text-sm text-gray-400">Sunrise, FL 33331</p>
+              {/* Google Map */}
+              <Card className="p-0 overflow-hidden">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Lighthouse+Insurance+Agency+10242+NW+47th+St+Suite+10+Sunrise+FL+33331"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative group"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.5!2d-80.2547!3d26.2089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDEyJzMyLjAiTiA4MMKwMTUnMTcuMCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lighthouse Insurance Agency Location"
+                    className="pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-gold text-navy px-6 py-3 rounded-lg font-semibold shadow-lg">
+                      View on Google Maps
+                    </div>
                   </div>
-                </div>
+                </a>
               </Card>
             </div>
           </div>
