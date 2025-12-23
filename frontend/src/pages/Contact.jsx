@@ -124,7 +124,7 @@ export const Contact = () => {
                       <option value="personal-auto">Personal Auto Insurance</option>
                       <option value="commercial-auto">Commercial Auto Insurance</option>
                       <option value="homeowners">Homeowners Insurance</option>
-                      <option value="multiple">Multiple Types</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                   
