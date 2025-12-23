@@ -76,9 +76,10 @@ export const Services = () => {
       {serviceDetails.map((service, index) => {
         const IconComponent = iconMap[service.icon];
         const isEven = index % 2 === 0;
+        const sectionId = service.title.toLowerCase().replace(/\s+/g, '-');
         
         return (
-          <section key={service.id} className={`py-16 px-4 sm:px-6 lg:px-8 ${isEven ? 'bg-white' : 'bg-beige'}`}>
+          <section key={service.id} id={sectionId} className={`py-16 px-4 sm:px-6 lg:px-8 ${isEven ? 'bg-white' : 'bg-beige'}`}>
             <div className="max-w-7xl mx-auto">
               <div className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
                 <div className={!isEven ? 'lg:order-2' : ''}>
