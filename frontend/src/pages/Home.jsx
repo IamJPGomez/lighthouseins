@@ -21,17 +21,17 @@ export const Home = () => {
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight">
-                Protecting What Matters Most to You
+                South Florida's Third-Generation Commercial Auto & Fleet Insurance Specialists
               </h1>
               
               <p className="text-lg text-slate leading-relaxed">
-                Expert insurance solutions in Sunrise, Florida. Get personalized coverage with competitive rates and exceptional service from Luis and the Lighthouse team.
+                For 20 years, we've protected trucking companies, contractors, and business owners who depend on vehicles to make money. While other agencies focus on home and auto, commercial auto is what we do all day.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
                   <Button className="bg-gold hover:bg-gold-hover text-navy font-semibold px-8 py-6 text-lg transition-all hover:scale-105 hover:shadow-lg">
-                    Get Your Free Quote
+                    Get Commercial Auto Quote
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
