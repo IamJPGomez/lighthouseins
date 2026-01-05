@@ -1,4 +1,5 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Request
+from fastapi.responses import HTMLResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,6 +10,7 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from bot_renderer import get_rendered_html
 
 
 ROOT_DIR = Path(__file__).parent
@@ -24,6 +26,31 @@ app = FastAPI()
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+
+# Bot rendering middleware
+@app.middleware("http")
+async def bot_render_middleware(request: Request, call_next):
+    """
+    Middleware to detect bots and serve pre-rendered HTML.
+    """
+    # Only handle GET requests for HTML pages (not API calls)
+    if request.method == "GET" and not request.url.path.startswith("/api"):
+        user_agent = request.headers.get("user-agent", "")
+        
+        # Get the full URL
+        full_url = str(request.url)
+        
+        # Try to get rendered HTML for bots
+        rendered_html = await get_rendered_html(full_url, user_agent)
+        
+        if rendered_html:
+            # Return pre-rendered HTML to bot
+            return HTMLResponse(content=rendered_html)
+    
+    # For non-bots or API calls, continue normally
+    response = await call_next(request)
+    return response
 
 
 # Define Models
