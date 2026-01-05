@@ -10,13 +10,13 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img 
-              src="/lighthouse-logo.svg" 
-              alt="Lighthouse Insurance Agency" 
-              className="h-12 w-auto"
-            />
-            <p className="text-sm text-gray-light leading-relaxed">
-              Your trusted insurance partner in Sunrise, Florida. Providing personalized coverage solutions since day one.
+            <img
+              src="/lighthouse-logo.svg"
+              alt="Lighthouse Insurance Agency"
+              className="h-12 w-auto" />
+
+            <p className="!text-sm text-gray-light">Your trusted insurance agency. Providing personalized coverage solutions since day one.
+
             </p>
           </div>
           
@@ -77,6 +77,6 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
