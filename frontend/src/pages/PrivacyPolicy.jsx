@@ -5,7 +5,7 @@ export const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
       {/* Header Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-beige to-white">
+      <section className="sm:px-6 lg:px-8 bg-gradient-to-br from-white via-beige to-white !pt-[128px] !pb-[24px] !pl-[16px] !pr-[16px]">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold text-navy mb-4">Privacy Policy</h1>
           <p className="text-slate text-lg">Last Updated: January 5, 2026</p>
@@ -13,7 +13,7 @@ export const PrivacyPolicy = () => {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="sm:px-6 lg:px-8 !pt-[32px] !pb-[24px] !pl-[16px] !pr-[16px] bg-white">
         <div className="max-w-4xl mx-auto prose prose-lg">
           <div className="text-slate leading-relaxed space-y-8">
             <p>
@@ -37,7 +37,7 @@ export const PrivacyPolicy = () => {
               We do not collect payment information, Social Security numbers, or banking details through this Website.
             </p>
 
-            <h2 className="text-3xl font-bold text-navy mt-12 mb-6">How We Use Your Information</h2>
+            <h2 className="!font-bold !text-3xl !mt-[48px] !mb-[12px] text-navy">How We Use Your Information</h2>
             <p>
               We use the information you provide for purposes such as:
             </p>
@@ -162,6 +162,6 @@ export const PrivacyPolicy = () => {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </div>);
+
 };
