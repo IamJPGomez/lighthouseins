@@ -34,15 +34,17 @@ async def bot_render_middleware(request: Request, call_next):
     """
     Middleware to detect bots and serve pre-rendered HTML.
     """
-    # Only handle GET requests for HTML pages (not API calls)
-    if request.method == "GET" and not request.url.path.startswith("/api"):
+    # Only handle GET requests for HTML pages (not API calls or static files)
+    if request.method == "GET" and not request.url.path.startswith("/api") and not request.url.path.startswith("/static"):
         user_agent = request.headers.get("user-agent", "")
         
-        # Get the full URL
-        full_url = str(request.url)
+        # Construct the frontend URL
+        frontend_url = f"http://localhost:3000{request.url.path}"
+        if request.url.query:
+            frontend_url += f"?{request.url.query}"
         
         # Try to get rendered HTML for bots
-        rendered_html = await get_rendered_html(full_url, user_agent)
+        rendered_html = await get_rendered_html(frontend_url, user_agent)
         
         if rendered_html:
             # Return pre-rendered HTML to bot
