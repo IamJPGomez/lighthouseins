@@ -24,8 +24,8 @@ export const Home = () => {
                 Protecting What Matters Most to You
               </h1>
               
-              <p className="text-lg text-slate leading-relaxed">
-                Expert insurance solutions in Sunrise, Florida. Get personalized coverage with competitive rates and exceptional service from Luis and the Lighthouse team.
+              <p className="!text-lg text-slate">Personalized insurance options for Florida.
+We assist with reviewing coverage options and pricing across multiple carriers, supported by exceptional service.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -42,7 +42,7 @@ export const Home = () => {
                 </a>
               </div>
               
-              <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-3 !pt-[16px] !gap-[24px]">
                 <div className="text-center">
                   <div className="!font-bold !text-3xl text-gold">20+</div>
                   <div className="text-sm text-slate mt-1">Years Experience</div>
