@@ -71,6 +71,19 @@ class StatusCheckCreate(BaseModel):
 async def root():
     return {"message": "Hello World"}
 
+@api_router.get("/render-test")
+async def render_test(url: str = "http://localhost:3000"):
+    """
+    Test endpoint to verify bot rendering works.
+    Usage: /api/render-test?url=http://localhost:3000/about
+    """
+    from bot_renderer import render_page_with_playwright
+    html = await render_page_with_playwright(url, timeout=15000)
+    if html:
+        return HTMLResponse(content=html)
+    else:
+        return {"error": "Failed to render page"}
+
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
     status_dict = input.model_dump()
