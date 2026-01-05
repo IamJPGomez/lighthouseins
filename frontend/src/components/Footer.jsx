@@ -68,6 +68,11 @@ export const Footer = () => {
                 <span className="text-sm text-gray-light">{mockData.businessInfo.hours}</span>
               </li>
             </ul>
+            <div className="mt-6">
+              <Link to="/privacy-policy" className="text-sm text-gray-light hover:text-gold transition-colors underline">
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
         
