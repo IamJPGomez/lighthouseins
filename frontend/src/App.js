@@ -11,6 +11,7 @@ import { Blog } from "./pages/Blog";
 import { BlogPost } from "./pages/BlogPost";
 import { Reviews } from "./pages/Reviews";
 import { Contact } from "./pages/Contact";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />
