@@ -4,6 +4,8 @@ import { Toaster } from "./components/ui/sonner";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Services } from "./pages/Services";
@@ -12,28 +14,40 @@ import { BlogPost } from "./pages/BlogPost";
 import { Reviews } from "./pages/Reviews";
 import { Contact } from "./pages/Contact";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import { AdminLogin } from "./pages/AdminLogin";
+import { AdminBlog } from "./pages/AdminBlog";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Header />
-        <main>
+      <AuthProvider>
+        <BrowserRouter>
+          <ScrollToTop />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            {/* Public routes with header/footer */}
+            <Route path="/" element={<><Header /><Home /><Footer /></>} />
+            <Route path="/about" element={<><Header /><About /><Footer /></>} />
+            <Route path="/services" element={<><Header /><Services /><Footer /></>} />
+            <Route path="/blog" element={<><Header /><Blog /><Footer /></>} />
+            <Route path="/blog/:slug" element={<><Header /><BlogPost /><Footer /></>} />
+            <Route path="/reviews" element={<><Header /><Reviews /><Footer /></>} />
+            <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
+            <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /></>} />
+            
+            {/* Admin routes (no header/footer) */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route 
+              path="/admin/blog" 
+              element={
+                <ProtectedRoute>
+                  <AdminBlog />
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
-        </main>
-        <Footer />
-        <Toaster />
-      </BrowserRouter>
+          <Toaster />
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
