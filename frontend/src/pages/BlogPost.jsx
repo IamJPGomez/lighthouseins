@@ -1,14 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Tag, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
-import { mockData } from '../mock';
+import { blogAPI } from '../services/api';
+import { toast } from 'sonner';
 
 export const BlogPost = () => {
   const { slug } = useParams();
-  const post = mockData.blogPosts.find(p => p.slug === slug);
+  const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   
+  useEffect(() => {
+    fetchPost();
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  const fetchPost = async () => {
+    try {
+      setLoading(true);
+      const postData = await blogAPI.getPostBySlug(slug);
+      setPost(postData);
+      
+      // Fetch related posts from same category
+      const allPosts = await blogAPI.getPublishedPosts(1, postData.category);
+      const related = allPosts.posts
+        .filter(p => p.id !== postData.id)
+        .slice(0, 3);
+      setRelatedPosts(related);
+    } catch (error) {
+      console.error('Error fetching post:', error);
+      toast.error('Failed to load blog post');
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  if (loading) {
+    return (
+      <div className="min-h-screen pt-32 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-slate">Loading post...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!post) {
     return (
       <div className="min-h-screen pt-32 px-4">
@@ -25,11 +63,6 @@ export const BlogPost = () => {
       </div>
     );
   }
-  
-  // Get related posts (same category, exclude current)
-  const relatedPosts = mockData.blogPosts
-    .filter(p => p.category === post.category && p.id !== post.id)
-    .slice(0, 3);
   
   return (
     <div className="min-h-screen">
@@ -67,11 +100,11 @@ export const BlogPost = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Calendar className="w-5 h-5 text-gold" />
-              <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              <span>{new Date(post.published_at || post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="w-5 h-5 text-gold" />
-              <span>{post.readTime}</span>
+              <span>{post.read_time}</span>
             </div>
           </div>
         </div>
@@ -87,7 +120,8 @@ export const BlogPost = () => {
               prose-p:text-slate prose-p:leading-relaxed prose-p:mb-6
               prose-ul:text-slate prose-ul:my-6
               prose-li:mb-2
-              prose-strong:text-navy prose-strong:font-semibold"
+              prose-strong:text-navy prose-strong:font-semibold
+              prose-a:text-gold prose-a:hover:underline"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
@@ -169,9 +203,9 @@ export const BlogPost = () => {
                 Get a Free Quote
               </Button>
             </Link>
-            <a href={`tel:${mockData.businessInfo.phone.replace(/[^0-9]/g, '')}`}>
+            <a href="tel:9545843417">
               <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-navy font-semibold px-8 py-4 text-lg transition-all">
-                Call {mockData.businessInfo.phone}
+                Call (954) 584-3417
               </Button>
             </a>
           </div>
