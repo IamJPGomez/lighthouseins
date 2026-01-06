@@ -1,20 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
-import { mockData } from '../mock';
+import { blogAPI } from '../services/api';
+import { toast } from 'sonner';
 
 export const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [posts, setPosts] = useState([]);
+  const [categories, setCategories] = useState(['All']);
+  const [loading, setLoading] = useState(true);
   
-  // Get unique categories
-  const categories = ['All', ...new Set(mockData.blogPosts.map(post => post.category))];
-  
-  // Filter posts by category
-  const filteredPosts = selectedCategory === 'All' 
-    ? mockData.blogPosts 
-    : mockData.blogPosts.filter(post => post.category === selectedCategory);
+  useEffect(() => {
+    fetchPosts();
+    fetchCategories();
+  }, [selectedCategory]);
+
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const categoryFilter = selectedCategory === 'All' ? null : selectedCategory;
+      const data = await blogAPI.getPublishedPosts(1, categoryFilter);
+      setPosts(data.posts);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+      toast.error('Failed to load blog posts');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const data = await blogAPI.getCategories();
+      setCategories(['All', ...data.categories]);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
   
   return (
     <div className="min-h-screen">
@@ -52,54 +76,58 @@ export const Blog = () => {
       {/* Blog Posts Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-                {/* Category Badge */}
-                <div className="p-6 pb-0">
-                  <div className="inline-flex items-center space-x-2 bg-gold/10 px-3 py-1 rounded-full mb-4">
-                    <Tag className="w-3 h-3 text-gold" />
-                    <span className="text-xs font-semibold text-navy">{post.category}</span>
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-6 pt-2">
-                  <h3 className="text-xl font-bold text-navy mb-3 leading-tight">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-slate mb-4 leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  {/* Meta Info */}
-                  <div className="flex items-center space-x-4 text-sm text-slate mb-4">
-                    <div className="flex items-center space-x-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Read More Link */}
-                  <Link to={`/blog/${post.slug}`}>
-                    <Button variant="outline" className="w-full border-gold text-navy hover:bg-gold hover:text-navy font-semibold transition-all">
-                      Read More
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </div>
-              </Card>
-            ))}
-          </div>
-          
-          {filteredPosts.length === 0 && (
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-slate">Loading posts...</p>
+            </div>
+          ) : posts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-slate text-lg">No posts found in this category.</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
+                  {/* Category Badge */}
+                  <div className="p-6 pb-0">
+                    <div className="inline-flex items-center space-x-2 bg-gold/10 px-3 py-1 rounded-full mb-4">
+                      <Tag className="w-3 h-3 text-gold" />
+                      <span className="text-xs font-semibold text-navy">{post.category}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6 pt-2">
+                    <h3 className="text-xl font-bold text-navy mb-3 leading-tight">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-slate mb-4 leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    
+                    {/* Meta Info */}
+                    <div className="flex items-center space-x-4 text-sm text-slate mb-4">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{new Date(post.published_at || post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{post.read_time}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Read More Link */}
+                    <Link to={`/blog/${post.slug}`}>
+                      <Button variant="outline" className="w-full border-gold text-navy hover:bg-gold hover:text-navy font-semibold transition-all">
+                        Read More
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </Card>
+              ))}
             </div>
           )}
         </div>
