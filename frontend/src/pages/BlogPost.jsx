@@ -137,7 +137,7 @@ export const BlogPost = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-navy">Written by {post.author}</h3>
-                <p className="text-slate">Insurance Expert at Lighthouse Insurance</p>
+                <p className="text-slate">Insurance Agent at Lighthouse Insurance</p>
               </div>
             </div>
             <p className="text-slate mb-6">
