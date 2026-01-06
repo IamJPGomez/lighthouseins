@@ -238,6 +238,11 @@ async def duplicate_post(
     
     # Create new post with duplicated content
     new_post_data = existing_post.copy()
+    
+    # Remove MongoDB's _id field to avoid duplicate key error
+    if "_id" in new_post_data:
+        del new_post_data["_id"]
+    
     new_post_data["id"] = str(uuid.uuid4())
     new_post_data["title"] = f"{existing_post['title']} (Copy)"
     new_post_data["slug"] = f"{existing_post['slug']}-copy-{str(uuid.uuid4())[:8]}"
