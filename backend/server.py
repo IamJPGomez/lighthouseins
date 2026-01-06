@@ -68,6 +68,31 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+class LoginResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+# Auth endpoints
+@api_router.post("/auth/login", response_model=LoginResponse)
+async def login(login_data: LoginRequest):
+    """Admin login endpoint."""
+    if not authenticate_user(login_data.username, login_data.password):
+        from fastapi import HTTPException
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    
+    # Create access token
+    access_token = create_access_token(
+        data={"sub": login_data.username},
+        expires_delta=timedelta(hours=24)
+    )
+    
+    return LoginResponse(access_token=access_token)
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
