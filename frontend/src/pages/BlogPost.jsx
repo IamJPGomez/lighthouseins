@@ -145,7 +145,7 @@ export const BlogPost = () => {
             </p>
             <Link to="/contact">
               <Button className="bg-gold hover:bg-gold-hover text-navy font-semibold px-6 py-3">
-                Get Expert Advice
+                Get Advice
               </Button>
             </Link>
           </Card>
