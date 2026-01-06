@@ -45,6 +45,22 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            <Route 
+              path="/admin/blog/new" 
+              element={
+                <ProtectedRoute>
+                  <AdminBlogEditor />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/blog/edit/:id" 
+              element={
+                <ProtectedRoute>
+                  <AdminBlogEditor />
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
           <Toaster />
         </BrowserRouter>
