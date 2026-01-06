@@ -222,7 +222,7 @@ export const mockData = {
         <p>At Lighthouse Insurance, we help you understand your options and choose coverage that fits your needs and budget. Contact us today for a personalized quote.</p>
       `,
       category: "Auto Insurance",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2025-01-15",
       readTime: "5 min read",
       image: null
@@ -260,7 +260,7 @@ export const mockData = {
         <p>At Lighthouse Insurance, we specialize in finding you the best rates. Contact us for a free review of your current policies.</p>
       `,
       category: "Insurance Tips",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2025-01-10",
       readTime: "4 min read",
       image: null
@@ -304,7 +304,7 @@ export const mockData = {
         <p>Understanding your homeowners insurance is crucial. Let Lighthouse Insurance review your policy and ensure you have the right protection for your Florida home.</p>
       `,
       category: "Homeowners Insurance",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2025-01-05",
       readTime: "6 min read",
       image: null
@@ -350,7 +350,7 @@ export const mockData = {
         <p>Lighthouse Insurance specializes in commercial auto coverage for small businesses in Florida. Get a customized quote today.</p>
       `,
       category: "Commercial Insurance",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2024-12-28",
       readTime: "5 min read",
       image: null
@@ -394,7 +394,7 @@ export const mockData = {
         <p>Need help with an insurance claim? Contact Lighthouse Insurance for expert guidance through the claims process.</p>
       `,
       category: "Insurance Claims",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2024-12-20",
       readTime: "7 min read",
       image: null
@@ -451,7 +451,7 @@ export const mockData = {
         <p>Ready to have a conversation about your insurance needs? Contact us today for honest, expert guidance.</p>
       `,
       category: "Insurance Tips",
-      author: "Luis Rodriguez",
+      author: "Luis Garcia",
       date: "2024-12-15",
       readTime: "6 min read",
       image: null

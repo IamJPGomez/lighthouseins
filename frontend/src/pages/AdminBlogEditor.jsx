@@ -22,7 +22,7 @@ export const AdminBlogEditor = () => {
     excerpt: '',
     content: '',
     category: 'Insurance Tips',
-    author: 'Luis Rodriguez',
+    author: 'Luis Garcia',
     read_time: '5 min read',
     meta_description: '',
     meta_keywords: '',

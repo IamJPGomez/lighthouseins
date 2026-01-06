@@ -13,7 +13,7 @@ class BlogPostBase(BaseModel):
     excerpt: str
     content: str  # HTML content from rich text editor
     category: str
-    author: str = "Luis Rodriguez"
+    author: str = "Luis Garcia"
     read_time: str = "5 min read"
     meta_description: Optional[str] = None
     meta_keywords: Optional[str] = None
