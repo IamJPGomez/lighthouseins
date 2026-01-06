@@ -16,6 +16,7 @@ import { Contact } from "./pages/Contact";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminBlog } from "./pages/AdminBlog";
+import { AdminBlogEditor } from "./pages/AdminBlogEditor";
 
 function App() {
   return (
