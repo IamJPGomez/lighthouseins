@@ -3,11 +3,16 @@ import resend
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env', override=False)
 
 router = APIRouter()
 
-# Initialize Resend
-resend.api_key = os.environ.get("RESEND_API_KEY")
+# Configuration
 NOTIFICATION_EMAIL = os.environ.get("NOTIFICATION_EMAIL", "luis@lhinsur.com")
 FROM_EMAIL = os.environ.get("FROM_EMAIL", "noreply@contact.lighthouseinsgroup.com")
 
