@@ -7,7 +7,9 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { toast } from 'sonner';
 import { mockData } from '../mock';
-import api from '../services/api';
+import axios from 'axios';
+
+const API_URL = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +35,7 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      await api.post('/contact/quote', formData);
+      await axios.post(`${API_URL}/contact/quote`, formData);
       toast.success('Quote request submitted! Check your email for confirmation.');
       setFormData({
         name: '',
