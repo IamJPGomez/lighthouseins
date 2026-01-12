@@ -45,6 +45,9 @@ def get_first_name(full_name: str) -> str:
 async def submit_quote_request(request: QuoteRequest):
     """Handle quote request form submission"""
     
+    # Set API key at runtime
+    resend.api_key = os.environ.get("RESEND_API_KEY")
+    
     if not resend.api_key:
         raise HTTPException(status_code=500, detail="Email service not configured")
     
