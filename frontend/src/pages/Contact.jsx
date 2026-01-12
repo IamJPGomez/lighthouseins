@@ -7,6 +7,7 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { toast } from 'sonner';
 import { mockData } from '../mock';
+import api from '../services/api';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,10 +32,9 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission (frontend only for now)
-    setTimeout(() => {
-      console.log('Quote request submitted:', formData);
-      toast.success('Quote request submitted! We\'ll contact you soon.');
+    try {
+      await api.post('/contact/quote', formData);
+      toast.success('Quote request submitted! Check your email for confirmation.');
       setFormData({
         name: '',
         email: '',
@@ -42,8 +42,12 @@ export const Contact = () => {
         insuranceType: '',
         message: ''
       });
+    } catch (error) {
+      console.error('Error submitting quote request:', error);
+      toast.error('Failed to submit quote request. Please try again or call us directly.');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
   
   return (
