@@ -56,7 +56,8 @@ async def submit_quote_request(request: QuoteRequest):
     try:
         first_name = get_first_name(request.name)
         insurance_label = get_insurance_type_label(request.insuranceType)
-        timestamp = datetime.now().strftime("%B %d, %Y at %I:%M %p")
+        est_now = datetime.now(EST_TIMEZONE)
+        timestamp = est_now.strftime("%B %d, %Y at %I:%M %p EST")
         
         # Email 1: Notification to Lighthouse Insurance
         notification_html = f"""
