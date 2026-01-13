@@ -3,6 +3,7 @@ import resend
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -15,6 +16,7 @@ router = APIRouter()
 # Configuration
 NOTIFICATION_EMAIL = os.environ.get("NOTIFICATION_EMAIL", "luis@lhinsur.com")
 FROM_EMAIL = os.environ.get("FROM_EMAIL", "noreply@contact.lighthouseinsgroup.com")
+EST_TIMEZONE = ZoneInfo("America/New_York")
 
 
 class QuoteRequest(BaseModel):
