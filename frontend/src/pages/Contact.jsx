@@ -72,6 +72,7 @@ export const Contact = () => {
             <div>
               <Card className="p-8 shadow-xl">
                 <h2 className="text-3xl font-bold text-navy mb-6">Request a Quote</h2>
+                <p className="text-sm text-slate mb-4">Fill out the form below and we'll get back to you shortly.</p>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
