@@ -156,6 +156,11 @@ export const Contact = () => {
                     {isSubmitting ? 'Submitting...' : 'Get Your Free Quote'}
                     {!isSubmitting && <Send className="ml-2 w-5 h-5" />}
                   </Button>
+                  
+                  {/* SMS Disclaimer */}
+                  <p className="text-xs text-slate leading-relaxed mt-4">
+                    By providing a telephone number and submitting this form, you are consenting to be contacted by SMS text message from Lighthouse Insurance. Types of messages will include notifications, reminders, etc. Message & data rates may apply. Message frequency may vary. <a href="/privacy-policy" className="text-gold hover:underline">Privacy Policy</a>. Reply Help for more information. You can reply STOP to opt-out of further messaging.
+                  </p>
                 </form>
               </Card>
             </div>
