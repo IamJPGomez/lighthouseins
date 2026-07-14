@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2, Ship } from "lucide-react";
 import { toast } from "sonner";
@@ -10,19 +10,18 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const load = () => {
+  const load = useCallback(() => {
     setLoading(true);
     api.get("/admin/posts", { headers: authHeaders() })
       .then(({ data }) => setPosts(data))
       .catch((e) => { if (e?.response?.status === 401) { clearToken(); navigate("/admin"); } })
       .finally(() => setLoading(false));
-  };
+  }, [navigate]);
 
   useEffect(() => {
     if (!getToken()) { navigate("/admin"); return; }
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [load, navigate]);
 
   const remove = async (id, title) => {
     if (!window.confirm(`Delete "${title}"? This cannot be undone.`)) return;

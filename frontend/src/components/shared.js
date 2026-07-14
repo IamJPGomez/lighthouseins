@@ -18,7 +18,7 @@ export const IconChip = ({ name, className = "" }) => {
 export const Stars = ({ value = 5, className = "" }) => (
   <div className={`flex items-center gap-0.5 text-amber-400 ${className}`} aria-label={`${value} out of 5 stars`}>
     {Array.from({ length: 5 }).map((_, i) => (
-      <Star key={i} className={`h-4 w-4 ${i < value ? "fill-amber-400" : "fill-none text-slate-300"}`} />
+      <Star key={`star-${i}`} className={`h-4 w-4 ${i < value ? "fill-amber-400" : "fill-none text-slate-300"}`} />
     ))}
   </div>
 );
@@ -60,7 +60,7 @@ export const Breadcrumbs = ({ items }) => (
   <nav aria-label="Breadcrumb" className="text-sm text-slate-500">
     <ol className="flex flex-wrap items-center gap-1.5">
       {items.map((it, i) => (
-        <li key={i} className="flex items-center gap-1.5">
+        <li key={it.label || i} className="flex items-center gap-1.5">
           {it.to ? (
             <Link to={it.to} className="hover:text-navy transition-colors">{it.label}</Link>
           ) : (

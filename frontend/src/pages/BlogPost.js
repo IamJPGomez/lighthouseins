@@ -11,6 +11,30 @@ import { BUSINESS, SITE_URL } from "@/lib/business";
 
 const fmt = (d) => { try { return new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }); } catch { return ""; } };
 
+// Markdown -> HTML, sanitized to prevent XSS before rendering.
+const renderPostHtml = (markdown) =>
+  DOMPurify.sanitize(String(marked.parse(markdown || "")));
+
+// Structured data (BlogPosting + optional FAQPage) for a post.
+const buildPostJsonLd = (post) => {
+  const blocks = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.seoDescription || post.excerpt,
+      image: post.coverImage || undefined,
+      author: { "@type": "Organization", name: BUSINESS.name },
+      publisher: { "@type": "Organization", name: BUSINESS.name, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
+      datePublished: post.publishedAt,
+      dateModified: post.updatedAt || post.publishedAt,
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
+    },
+  ];
+  if (post.faqs && post.faqs.length) blocks.push(faqJsonLd(post.faqs));
+  return blocks;
+};
+
 export default function BlogPost() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -34,23 +58,9 @@ export default function BlogPost() {
     );
   }
 
-  const html = DOMPurify.sanitize(marked.parse(post.content || ""));
+  const html = renderPostHtml(post.content);
   const faqs = post.faqs || [];
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.seoDescription || post.excerpt,
-      image: post.coverImage || undefined,
-      author: { "@type": "Organization", name: BUSINESS.name },
-      publisher: { "@type": "Organization", name: BUSINESS.name, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
-      datePublished: post.publishedAt,
-      dateModified: post.updatedAt || post.publishedAt,
-      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
-    },
-  ];
-  if (faqs.length) jsonLd.push(faqJsonLd(faqs));
+  const jsonLd = buildPostJsonLd(post);
 
   return (
     <>

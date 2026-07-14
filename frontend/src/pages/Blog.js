@@ -13,6 +13,7 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Fetch published posts once on mount. `api` and setters are stable.
     api.get("/posts").then(({ data }) => setPosts(data)).catch(() => setPosts([])).finally(() => setLoading(false));
   }, []);
 

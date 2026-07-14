@@ -7,7 +7,7 @@ export const FaqAccordion = ({ faqs = [], testId = "faq-accordion" }) => {
   return (
     <Accordion type="multiple" className="w-full" data-testid={testId}>
       {faqs.map((f, i) => (
-        <AccordionItem key={i} value={`item-${i}`}>
+        <AccordionItem key={f.question || `item-${i}`} value={`item-${i}`}>
           <AccordionTrigger className="text-left font-display text-navy hover:no-underline">
             {f.question}
           </AccordionTrigger>

@@ -7,6 +7,14 @@ import { api, authHeaders, getToken, clearToken } from "@/lib/api";
 
 const EMPTY = { title: "", slug: "", excerpt: "", content: "", author: "Lighthouse Insurance", coverImage: "", tags: "", status: "draft", seoTitle: "", seoDescription: "", faqs: [] };
 
+// Stable unique id used as React key for dynamically added/removed FAQ rows.
+const uid = () =>
+  (typeof crypto !== "undefined" && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : `k_${Math.random().toString(36).slice(2)}${Date.now()}`;
+
+const withKeys = (faqs = []) => faqs.map((f) => ({ ...f, _key: f._key || uid() }));
+
 export default function AdminEditor() {
   const { id } = useParams();
   const isNew = id === "new";
@@ -19,7 +27,7 @@ export default function AdminEditor() {
     if (!getToken()) { navigate("/admin"); return; }
     if (!isNew) {
       api.get(`/admin/posts/${id}`, { headers: authHeaders() })
-        .then(({ data }) => setForm({ ...EMPTY, ...data, tags: (data.tags || []).join(", "), faqs: data.faqs || [] }))
+        .then(({ data }) => setForm({ ...EMPTY, ...data, tags: (data.tags || []).join(", "), faqs: withKeys(data.faqs || []) }))
         .catch((e) => { if (e?.response?.status === 401) { clearToken(); navigate("/admin"); } else { toast.error("Post not found"); navigate("/admin/posts"); } })
         .finally(() => setLoading(false));
     }
@@ -28,7 +36,7 @@ export default function AdminEditor() {
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const setFaq = (i, k, v) => setForm((f) => ({ ...f, faqs: f.faqs.map((q, idx) => (idx === i ? { ...q, [k]: v } : q)) }));
-  const addFaq = () => setForm((f) => ({ ...f, faqs: [...f.faqs, { question: "", answer: "" }] }));
+  const addFaq = () => setForm((f) => ({ ...f, faqs: [...f.faqs, { question: "", answer: "", _key: uid() }] }));
   const removeFaq = (i) => setForm((f) => ({ ...f, faqs: f.faqs.filter((_, idx) => idx !== i) }));
 
   const save = async (publishOverride) => {
@@ -38,7 +46,9 @@ export default function AdminEditor() {
       ...form,
       status: publishOverride || form.status,
       tags: form.tags.split(",").map((t) => t.trim()).filter(Boolean),
-      faqs: form.faqs.filter((q) => q.question.trim() && q.answer.trim()),
+      faqs: form.faqs
+        .filter((q) => q.question.trim() && q.answer.trim())
+        .map((q) => ({ question: q.question, answer: q.answer })),
     };
     try {
       if (isNew) {
@@ -103,7 +113,7 @@ export default function AdminEditor() {
           <p className="mt-1 text-xs text-slate-400">Adds an FAQ accordion + FAQPage structured data to the post.</p>
           <div className="mt-4 space-y-3">
             {form.faqs.map((q, i) => (
-              <div key={i} className="rounded-xl border border-slate-200 p-3">
+              <div key={q._key || i} className="rounded-xl border border-slate-200 p-3">
                 <div className="flex items-center gap-2"><input value={q.question} onChange={(e) => setFaq(i, "question", e.target.value)} className={field} placeholder="Question" /><button onClick={() => removeFaq(i)} className="grid place-items-center h-9 w-9 shrink-0 rounded-lg border border-slate-200 text-red-600 hover:bg-red-50"><Trash2 className="h-4 w-4" /></button></div>
                 <textarea value={q.answer} onChange={(e) => setFaq(i, "answer", e.target.value)} rows={2} className={`${field} mt-2`} placeholder="Answer" />
               </div>
