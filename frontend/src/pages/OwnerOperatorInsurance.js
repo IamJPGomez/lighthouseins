@@ -44,7 +44,10 @@ export default function OwnerOperatorInsurance() {
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Trucking Insurance", to: "/trucking-insurance" }, { label: "Owner-Operator Insurance" }]} />
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">Owner-Operator Insurance</h1>
           <p className="mt-4 text-lg text-slate-200 max-w-2xl">Everything a solo owner-operator needs to get on the road, obtain MC authority, and stay compliant — from an independent Florida agent.</p>
-          <a href={BUSINESS.phoneHref} data-testid="ownerop-call" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+          <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href={BUSINESS.phoneHref} data-testid="ownerop-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+            <Link to="/contact" data-testid="ownerop-quote" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote <ArrowRight className="h-5 w-5" /></Link>
+          </div>
         </div>
       </section>
 

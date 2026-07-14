@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import Seo from "@/components/Seo";
 import { Breadcrumbs } from "@/components/shared";
@@ -11,6 +11,7 @@ const TYPES = ["Personal Auto", "Homeowners", "Commercial Auto", "Trucking", "Ca
 export default function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", insuranceType: "", zip: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const [submittedName, setSubmittedName] = useState(null);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submit = async (e) => {
@@ -21,8 +22,9 @@ export default function Contact() {
     }
     setLoading(true);
     try {
-      const { data } = await api.post("/contact", form);
-      toast.success(data.message || "Thank you! We'll be in touch shortly.");
+      await api.post("/contact", form);
+      setSubmittedName(form.name.trim());
+      toast.success("Request received! We'll be in touch within 1 business day.");
       setForm({ name: "", phone: "", email: "", insuranceType: "", zip: "", message: "" });
     } catch (err) {
       toast.error("Something went wrong. Please call us at " + BUSINESS.phone);
@@ -65,6 +67,16 @@ export default function Contact() {
 
         {/* Form */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+          {submittedName ? (
+            <div className="py-6 text-center" data-testid="contact-success">
+              <span className="mx-auto grid place-items-center h-14 w-14 rounded-full bg-teal/10 text-teal"><CheckCircle2 className="h-8 w-8" /></span>
+              <h2 className="mt-4 font-display text-2xl font-semibold text-navy">Thanks, {submittedName}!</h2>
+              <p className="mt-2 text-slate-600">We&apos;ve received your request and will be in touch within <strong>1 business day</strong>.</p>
+              <p className="mt-1 text-sm text-slate-500">Need coverage sooner? Call us at <a href={BUSINESS.phoneHref} className="font-semibold text-teal">{BUSINESS.phone}</a>.</p>
+              <button onClick={() => setSubmittedName(null)} data-testid="contact-send-another" className="mt-6 inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-semibold text-navy hover:bg-slate-50 transition-colors">Send another request</button>
+            </div>
+          ) : (
+          <>
           <h2 className="font-display text-2xl font-semibold text-navy">Request a Free Quote</h2>
           <p className="mt-1 text-sm text-slate-500">Fast quotes. No obligation.</p>
           <form onSubmit={submit} className="mt-6 space-y-4" data-testid="contact-form">
@@ -91,6 +103,8 @@ export default function Contact() {
             </button>
             <p className="text-center text-xs text-slate-500">Prefer to talk? Call <a href={BUSINESS.phoneHref} className="font-semibold text-teal">{BUSINESS.phone}</a></p>
           </form>
+          </>
+          )}
         </div>
       </section>
     </>

@@ -42,7 +42,10 @@ export default function CargoInsurance() {
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Trucking Insurance", to: "/trucking-insurance" }, { label: "Cargo Insurance" }]} />
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">Motor Truck Cargo Insurance</h1>
           <p className="mt-4 text-lg text-slate-200 max-w-2xl">Protect the freight you haul with the right limits — the coverage brokers and shippers require before they tender you a load.</p>
-          <a href={BUSINESS.phoneHref} data-testid="cargo-call" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+          <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href={BUSINESS.phoneHref} data-testid="cargo-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+            <Link to="/contact" data-testid="cargo-quote" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote <ArrowRight className="h-5 w-5" /></Link>
+          </div>
         </div>
       </section>
 

@@ -22,7 +22,7 @@ export const Header = () => {
       {/* Top utility strip */}
       <div className="bg-navy text-slate-200 text-xs">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
-          <span className="hidden sm:inline">{BUSINESS.street}, {BUSINESS.cityStateZip}</span>
+          <span className="hidden sm:inline whitespace-nowrap">{`${BUSINESS.street}, ${BUSINESS.cityStateZip}`}</span>
           <span className="sm:hidden">Sunrise, FL</span>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline text-slate-300">{BUSINESS.hoursShort}</span>

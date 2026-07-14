@@ -198,7 +198,7 @@ Getting authority is stressful enough. As an independent Florida agency, Lightho
         "author": "Luis Rodriguez",
         "tags": ["Liability", "Owner-Operator", "Coverage"],
         "status": "published",
-        "coverImage": "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=70",
+        "coverImage": "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&w=1200&q=70",
         "seoTitle": "Non-Trucking Liability vs Primary Liability Explained",
         "seoDescription": "Understand the difference between non-trucking liability and primary liability insurance for truckers. Call (954) 584-3417 for help.",
         "faqs": [
