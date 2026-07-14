@@ -26,7 +26,7 @@ export const Stars = ({ value = 5, className = "" }) => (
 export const SectionTitle = ({ eyebrow, title, subtitle, center = false }) => (
   <div className={center ? "text-center max-w-2xl mx-auto" : "max-w-2xl"}>
     {eyebrow && (
-      <span className="inline-block text-xs font-semibold uppercase tracking-wider text-teal mb-2">{eyebrow}</span>
+      <span className="inline-block text-xs font-semibold uppercase tracking-wider text-gold mb-2">{eyebrow}</span>
     )}
     <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-navy">{title}</h2>
     {subtitle && <p className="mt-3 text-slate-600 leading-relaxed">{subtitle}</p>}
@@ -40,7 +40,7 @@ export const ServiceCard = ({ service }) => {
       <h3 className="mt-4 font-display text-lg font-semibold text-navy">{service.title}</h3>
       <p className="mt-2 text-sm text-slate-600 leading-relaxed">{service.desc}</p>
       {service.to && (
-        <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold">
           Learn more <ChevronRight className="h-4 w-4" />
         </span>
       )}
@@ -77,7 +77,7 @@ export const FeatureItem = ({ icon, title, children }) => {
   const Icon = ICONS[icon] || ShieldCheck;
   return (
     <div className="flex gap-4">
-      <span className="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-teal/10 text-teal">
+      <span className="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-gold/10 text-gold">
         <Icon className="h-5 w-5" />
       </span>
       <div>

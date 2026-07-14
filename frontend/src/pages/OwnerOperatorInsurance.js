@@ -45,7 +45,7 @@ export default function OwnerOperatorInsurance() {
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">Owner-Operator Insurance</h1>
           <p className="mt-4 text-lg text-slate-200 max-w-2xl">Everything a solo owner-operator needs to get on the road, obtain MC authority, and stay compliant — from an independent Florida agent.</p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href={BUSINESS.phoneHref} data-testid="ownerop-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+            <a href={BUSINESS.phoneHref} data-testid="ownerop-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-white hover:bg-[#a3831f] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
             <Link to="/contact" data-testid="ownerop-quote" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote <ArrowRight className="h-5 w-5" /></Link>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function OwnerOperatorInsurance() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {NEEDS.map(([t, d]) => (
             <div key={t} className="rounded-2xl border border-slate-200 bg-white p-6">
-              <span className="grid place-items-center h-11 w-11 rounded-xl bg-teal/10 text-teal"><IdCard className="h-5 w-5" /></span>
+              <span className="grid place-items-center h-11 w-11 rounded-xl bg-gold/10 text-gold"><IdCard className="h-5 w-5" /></span>
               <h3 className="mt-4 font-display font-semibold text-navy">{t}</h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">{d}</p>
             </div>
@@ -72,13 +72,13 @@ export default function OwnerOperatorInsurance() {
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy">What drives your cost</h2>
             <ul className="mt-5 space-y-2 text-sm text-slate-700">
-              {COSTS.map((c) => (<li key={c} className="flex gap-2"><span className="text-teal">✓</span> {c}</li>))}
+              {COSTS.map((c) => (<li key={c} className="flex gap-2"><span className="text-gold">✓</span> {c}</li>))}
             </ul>
-            <Link to="/blog/how-much-does-trucking-insurance-cost-florida-2026" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">See 2026 cost breakdown <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/blog/how-much-does-trucking-insurance-cost-florida-2026" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold">See 2026 cost breakdown <ArrowRight className="h-4 w-4" /></Link>
           </div>
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy">Owner-operator vs. fleet insurance</h2>
-            <p className="mt-4 text-slate-600 leading-relaxed">As an owner-operator, you insure a single power unit and yourself as the driver. Fleet policies cover multiple trucks and drivers, are priced per unit, and often include package discounts. If you plan to add trucks, we will structure coverage that grows with you — see our <Link to="/trucking-insurance#fleet" className="text-teal underline underline-offset-2">fleet insurance options</Link>.</p>
+            <p className="mt-4 text-slate-600 leading-relaxed">As an owner-operator, you insure a single power unit and yourself as the driver. Fleet policies cover multiple trucks and drivers, are priced per unit, and often include package discounts. If you plan to add trucks, we will structure coverage that grows with you — see our <Link to="/trucking-insurance#fleet" className="text-gold underline underline-offset-2">fleet insurance options</Link>.</p>
           </div>
         </div>
       </section>

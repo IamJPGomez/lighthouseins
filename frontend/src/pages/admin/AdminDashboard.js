@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2, Ship } from "lucide-react";
+import { Plus, Pencil, Trash2, LogOut, ExternalLink, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import Seo from "@/components/Seo";
+import { Logo } from "@/components/Logo";
 import { api, authHeaders, clearToken, getToken } from "@/lib/api";
 
 export default function AdminDashboard() {
@@ -39,7 +40,7 @@ export default function AdminDashboard() {
       <Seo title="Manage Posts | Lighthouse Admin" description="Admin dashboard" path="/admin/posts" />
       <header className="bg-navy text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2"><span className="grid place-items-center h-9 w-9 rounded-lg bg-white/10"><Ship className="h-5 w-5" /></span><span className="font-display font-semibold">Lighthouse Admin</span></div>
+          <div className="flex items-center gap-2"><Logo light markClass="h-9 w-auto" /><span className="ml-1 rounded-md bg-white/10 px-2 py-0.5 text-xs font-semibold tracking-wide">ADMIN</span></div>
           <div className="flex items-center gap-3">
             <a href="/" target="_blank" rel="noreferrer" className="text-sm text-slate-300 hover:text-white inline-flex items-center gap-1">View site <ExternalLink className="h-3.5 w-3.5" /></a>
             <button onClick={logout} data-testid="admin-logout" className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm hover:bg-white/20 transition-colors"><LogOut className="h-4 w-4" /> Logout</button>
@@ -50,12 +51,12 @@ export default function AdminDashboard() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between">
           <div><h1 className="font-display text-2xl font-semibold text-navy">Blog Posts</h1><p className="text-sm text-slate-500">{posts.length} total</p></div>
-          <Link to="/admin/posts/new" data-testid="admin-new-post" className="inline-flex items-center gap-2 rounded-xl bg-teal px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Plus className="h-4 w-4" /> New Post</Link>
+          <Link to="/admin/posts/new" data-testid="admin-new-post" className="inline-flex items-center gap-2 rounded-xl bg-gold px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#a3831f] transition-colors"><Plus className="h-4 w-4" /> New Post</Link>
         </div>
 
         <div className="mt-6 rounded-2xl border border-slate-200 bg-white overflow-hidden">
           {loading ? (
-            <div className="flex justify-center py-20"><Loader2 className="h-7 w-7 animate-spin text-teal" /></div>
+            <div className="flex justify-center py-20"><Loader2 className="h-7 w-7 animate-spin text-gold" /></div>
           ) : posts.length === 0 ? (
             <div className="py-20 text-center text-slate-500">No posts yet. Create your first post.</div>
           ) : (

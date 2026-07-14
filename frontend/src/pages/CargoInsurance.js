@@ -43,7 +43,7 @@ export default function CargoInsurance() {
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">Motor Truck Cargo Insurance</h1>
           <p className="mt-4 text-lg text-slate-200 max-w-2xl">Protect the freight you haul with the right limits — the coverage brokers and shippers require before they tender you a load.</p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href={BUSINESS.phoneHref} data-testid="cargo-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+            <a href={BUSINESS.phoneHref} data-testid="cargo-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-white hover:bg-[#a3831f] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
             <Link to="/contact" data-testid="cargo-quote" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote <ArrowRight className="h-5 w-5" /></Link>
           </div>
         </div>
@@ -54,13 +54,13 @@ export default function CargoInsurance() {
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy">What cargo insurance covers</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">Motor truck cargo insurance pays for direct physical loss or damage to the freight you are legally hauling. While federal law only mandates it for household goods carriers, almost no broker will give you a load without it.</p>
           <ul className="mt-5 space-y-2 text-sm text-slate-700">
-            {COVERS.map((c) => (<li key={c} className="flex gap-2"><span className="text-teal">✓</span> {c}</li>))}
+            {COVERS.map((c) => (<li key={c} className="flex gap-2"><span className="text-gold">✓</span> {c}</li>))}
           </ul>
         </div>
         <div>
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy">Coverage limits brokers require</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">$100,000 has long been the standard minimum and is still the most common figure on a rate confirmation. More brokers now require <strong>$250,000</strong>, especially for higher-value freight like electronics or pharmaceuticals. Carrying too little can cost you loads; carrying far more than you need wastes premium. We help you match the limit to the freight you actually run.</p>
-          <Link to="/blog/motor-truck-cargo-insurance-owner-operators-guide" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">Read the full cargo guide <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/blog/motor-truck-cargo-insurance-owner-operators-guide" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold">Read the full cargo guide <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
 
@@ -70,7 +70,7 @@ export default function CargoInsurance() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SCENARIOS.map(([t, d]) => (
               <div key={t} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <span className="grid place-items-center h-11 w-11 rounded-xl bg-teal/10 text-teal"><PackageCheck className="h-5 w-5" /></span>
+                <span className="grid place-items-center h-11 w-11 rounded-xl bg-gold/10 text-gold"><PackageCheck className="h-5 w-5" /></span>
                 <h3 className="mt-4 font-display font-semibold text-navy">{t}</h3>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">{d}</p>
               </div>

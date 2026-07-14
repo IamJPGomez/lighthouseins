@@ -34,7 +34,7 @@ export default function Blog() {
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
         {loading ? (
-          <div className="flex justify-center py-20" data-testid="blog-loading"><Loader2 className="h-8 w-8 animate-spin text-teal" /></div>
+          <div className="flex justify-center py-20" data-testid="blog-loading"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20 text-slate-500" data-testid="blog-empty">No posts found.</div>
         ) : (
@@ -45,12 +45,12 @@ export default function Blog() {
                   <img src={p.coverImage} alt={p.title} loading="lazy" className="h-44 w-full object-cover" />
                 ) : (<div className="h-44 w-full bg-navy" />)}
                 <div className="flex flex-col flex-1 p-6">
-                  {p.tags && p.tags[0] && (<span className="text-xs font-semibold uppercase tracking-wide text-teal">{p.tags[0]}</span>)}
-                  <h2 className="mt-2 font-display text-lg font-semibold text-navy group-hover:text-teal transition-colors">{p.title}</h2>
+                  {p.tags && p.tags[0] && (<span className="text-xs font-semibold uppercase tracking-wide text-gold">{p.tags[0]}</span>)}
+                  <h2 className="mt-2 font-display text-lg font-semibold text-navy group-hover:text-gold transition-colors">{p.title}</h2>
                   <p className="mt-2 text-sm text-slate-600 leading-relaxed flex-1">{p.excerpt}</p>
                   <div className="mt-4 flex items-center justify-between text-xs text-slate-500">
                     <span className="inline-flex items-center gap-1"><CalendarDays className="h-3.5 w-3.5" /> {fmt(p.publishedAt)}</span>
-                    <span className="inline-flex items-center gap-1 font-semibold text-teal">Read <ArrowRight className="h-3.5 w-3.5" /></span>
+                    <span className="inline-flex items-center gap-1 font-semibold text-gold">Read <ArrowRight className="h-3.5 w-3.5" /></span>
                   </div>
                 </div>
               </Link>

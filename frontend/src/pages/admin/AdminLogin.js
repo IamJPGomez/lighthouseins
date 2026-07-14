@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Loader2, Lock, Ship } from "lucide-react";
+import { Loader2, Lock } from "lucide-react";
 import { toast } from "sonner";
 import Seo from "@/components/Seo";
+import { Logo } from "@/components/Logo";
 import { api, setToken } from "@/lib/api";
 
 export default function AdminLogin() {
@@ -29,17 +30,16 @@ export default function AdminLogin() {
     <div className="min-h-screen grid place-items-center bg-[#0f1b26] px-4">
       <Seo title="Admin Login | Lighthouse Insurance" description="Admin area" path="/admin" />
       <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl">
-        <div className="flex items-center gap-2 justify-center">
-          <span className="grid place-items-center h-10 w-10 rounded-lg bg-navy text-white"><Ship className="h-5 w-5" /></span>
-          <span className="font-display text-lg font-semibold text-navy">Lighthouse Admin</span>
+        <div className="flex justify-center">
+          <Logo markClass="h-12 w-auto" />
         </div>
         <h1 className="mt-6 text-center text-sm text-slate-500">Sign in to manage blog posts</h1>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div className="relative">
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} data-testid="admin-password" placeholder="Password" className="w-full h-11 rounded-xl border border-slate-200 pl-10 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" autoFocus />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} data-testid="admin-password" placeholder="Password" className="w-full h-11 rounded-xl border border-slate-200 pl-10 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold" autoFocus />
           </div>
-          <button type="submit" disabled={loading} data-testid="admin-login-button" className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3 font-semibold text-white hover:bg-[#0b8b8a] transition-colors disabled:opacity-60">
+          <button type="submit" disabled={loading} data-testid="admin-login-button" className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3 font-semibold text-white hover:bg-[#a3831f] transition-colors disabled:opacity-60">
             {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Sign In"}
           </button>
         </form>

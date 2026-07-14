@@ -43,7 +43,7 @@ export default function Services() {
             <div key={d.id} id={d.id} className="scroll-mt-28 grid lg:grid-cols-3 gap-6">
               <div>
                 <h2 className="font-display text-2xl font-semibold text-navy">{d.title}</h2>
-                {d.to && (<Link to={d.to} className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-teal">Dedicated page <ArrowRight className="h-4 w-4" /></Link>)}
+                {d.to && (<Link to={d.to} className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-gold">Dedicated page <ArrowRight className="h-4 w-4" /></Link>)}
               </div>
               <p className="lg:col-span-2 text-slate-600 leading-relaxed">{d.body}</p>
             </div>

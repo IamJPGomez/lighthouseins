@@ -9,7 +9,7 @@ export default function NotFound() {
         <p className="font-display text-6xl font-semibold text-navy">404</p>
         <h1 className="mt-4 text-xl font-semibold text-slate-800">Page not found</h1>
         <p className="mt-2 text-slate-600">Sorry, we couldn't find the page you were looking for.</p>
-        <Link to="/" className="mt-6 inline-flex items-center rounded-xl bg-teal px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b8b8a] transition-colors">Back to Home</Link>
+        <Link to="/" className="mt-6 inline-flex items-center rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-white hover:bg-[#a3831f] transition-colors">Back to Home</Link>
       </section>
     </>
   );

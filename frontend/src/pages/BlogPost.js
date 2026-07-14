@@ -46,14 +46,14 @@ export default function BlogPost() {
   }, [slug]);
 
   if (status === "loading") {
-    return <div className="flex justify-center py-32"><Loader2 className="h-8 w-8 animate-spin text-teal" /></div>;
+    return <div className="flex justify-center py-32"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>;
   }
   if (status === "notfound" || !post) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-32 text-center">
         <Seo title="Post Not Found | Lighthouse Insurance" description="Post not found." path={`/blog/${slug}`} />
         <h1 className="font-display text-2xl font-semibold text-navy">Post not found</h1>
-        <Link to="/blog" className="mt-4 inline-flex items-center gap-1 text-teal font-semibold">Back to blog <ArrowRight className="h-4 w-4" /></Link>
+        <Link to="/blog" className="mt-4 inline-flex items-center gap-1 text-gold font-semibold">Back to blog <ArrowRight className="h-4 w-4" /></Link>
       </div>
     );
   }
@@ -104,7 +104,7 @@ export default function BlogPost() {
             <h2 className="font-display text-xl font-semibold text-white">Have questions about your coverage?</h2>
             <p className="mt-2 text-sm text-slate-300">Talk to a local, independent Florida agent who shops multiple carriers for you.</p>
             <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={BUSINESS.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-4 w-4" /> Call {BUSINESS.phone}</a>
+              <a href={BUSINESS.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-white hover:bg-[#a3831f] transition-colors"><Phone className="h-4 w-4" /> Call {BUSINESS.phone}</a>
               <Link to="/contact" className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote</Link>
             </div>
           </div>

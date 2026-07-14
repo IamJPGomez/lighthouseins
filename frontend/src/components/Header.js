@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Phone, Menu, ChevronDown, Ship } from "lucide-react";
+import { Phone, Menu, ChevronDown } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Logo } from "@/components/Logo";
 import { BUSINESS, NAV_LINKS, COMMERCIAL_LINKS } from "@/lib/business";
 
 const linkBase =
@@ -26,7 +27,7 @@ export const Header = () => {
           <span className="sm:hidden">Sunrise, FL</span>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline text-slate-300">{BUSINESS.hoursShort}</span>
-            <a href={BUSINESS.phoneHref} className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-teal transition-colors" data-testid="topbar-phone">
+            <a href={BUSINESS.phoneHref} className="inline-flex items-center gap-1.5 font-semibold text-white hover:text-gold transition-colors" data-testid="topbar-phone">
               <Phone className="h-3.5 w-3.5" /> {BUSINESS.phone}
             </a>
           </div>
@@ -35,14 +36,8 @@ export const Header = () => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-2.5" data-testid="header-logo">
-            <span className="grid place-items-center h-9 w-9 rounded-lg bg-navy text-white">
-              <Ship className="h-5 w-5" />
-            </span>
-            <span className="font-display text-lg font-semibold text-navy leading-tight">
-              Lighthouse<span className="text-teal">.</span>
-              <span className="block text-[10px] font-medium tracking-wide text-slate-500 uppercase">Insurance, Inc.</span>
-            </span>
+          <Link to="/" className="flex items-center" data-testid="header-logo">
+            <Logo markClass="h-10 sm:h-11 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -82,14 +77,14 @@ export const Header = () => {
             <a href={BUSINESS.phoneHref} data-testid="header-call-button" className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-navy hover:bg-slate-50 transition-colors">
               <Phone className="h-4 w-4" /> Call Now
             </a>
-            <Link to="/contact" data-testid="header-quote-button" className="inline-flex items-center rounded-xl bg-teal px-4 py-2 text-sm font-semibold text-white hover:bg-[#0b8b8a] transition-colors">
+            <Link to="/contact" data-testid="header-quote-button" className="inline-flex items-center rounded-xl bg-gold px-4 py-2 text-sm font-semibold text-white hover:bg-[#a3831f] transition-colors">
               Get a Quote
             </Link>
           </div>
 
           {/* Mobile */}
           <div className="flex lg:hidden items-center gap-2">
-            <a href={BUSINESS.phoneHref} data-testid="header-mobile-call" className="grid place-items-center h-10 w-10 rounded-xl bg-teal text-white">
+            <a href={BUSINESS.phoneHref} data-testid="header-mobile-call" className="grid place-items-center h-10 w-10 rounded-xl bg-gold text-white">
               <Phone className="h-5 w-5" />
             </a>
             <Sheet open={open} onOpenChange={setOpen}>
@@ -119,7 +114,7 @@ export const Header = () => {
                     <a href={BUSINESS.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 text-sm font-semibold text-white">
                       <Phone className="h-4 w-4" /> Call {BUSINESS.phone}
                     </a>
-                    <Link to="/contact" onClick={() => setOpen(false)} className="inline-flex items-center justify-center rounded-xl bg-teal px-4 py-3 text-sm font-semibold text-white">
+                    <Link to="/contact" onClick={() => setOpen(false)} className="inline-flex items-center justify-center rounded-xl bg-gold px-4 py-3 text-sm font-semibold text-white">
                       Get a Free Quote
                     </Link>
                   </div>

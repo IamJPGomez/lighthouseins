@@ -17,7 +17,7 @@ export const CTABand = ({
           <a
             href={BUSINESS.phoneHref}
             data-testid="cta-band-call"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal text-white px-6 py-3 font-semibold hover:bg-[#0b8b8a] transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold text-white px-6 py-3 font-semibold hover:bg-[#a3831f] transition-colors"
           >
             <Phone className="h-4 w-4" /> Call {BUSINESS.phone}
           </a>

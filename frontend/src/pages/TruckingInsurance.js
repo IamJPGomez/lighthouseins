@@ -45,7 +45,7 @@ export default function TruckingInsurance() {
               <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight text-white">Trucking Insurance in Florida</h1>
               <p className="mt-4 text-lg text-slate-200">As an independent trucking insurance agent in Sunrise, FL, we shop multiple carriers to build the right program for owner-operators and fleets — at a competitive price.</p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <a href={BUSINESS.phoneHref} data-testid="trucking-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3.5 font-semibold text-white hover:bg-[#0b8b8a] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
+                <a href={BUSINESS.phoneHref} data-testid="trucking-call" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-semibold text-white hover:bg-[#a3831f] transition-colors"><Phone className="h-5 w-5" /> Call {BUSINESS.phone}</a>
                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-navy hover:bg-slate-100 transition-colors">Get a Free Quote <ArrowRight className="h-5 w-5" /></Link>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function TruckingInsurance() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {COVERAGES.map(([t, d]) => (
             <div key={t} className="rounded-2xl border border-slate-200 bg-white p-6">
-              <span className="grid place-items-center h-11 w-11 rounded-xl bg-teal/10 text-teal"><ShieldCheck className="h-5 w-5" /></span>
+              <span className="grid place-items-center h-11 w-11 rounded-xl bg-gold/10 text-gold"><ShieldCheck className="h-5 w-5" /></span>
               <h3 className="mt-4 font-display text-lg font-semibold text-navy">{t}</h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">{d}</p>
             </div>
@@ -80,7 +80,7 @@ export default function TruckingInsurance() {
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy">Florida DOT & MC authority requirements</h2>
             <p className="mt-4 text-slate-600 leading-relaxed">To run for-hire, the FMCSA requires proof of liability insurance filed on your behalf via form <strong>BMC-91</strong>. The federal minimum is generally $750,000, but nearly every broker requires $1,000,000. Certain hazmat operations require up to $5,000,000. We file your BMC-91 directly with the FMCSA — often the same day your policy is bound — so you can activate your authority without delay.</p>
-            <Link to="/blog/dot-mc-authority-insurance-requirements-florida" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">Read our DOT & MC guide <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/blog/dot-mc-authority-insurance-requirements-florida" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-gold">Read our DOT & MC guide <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>

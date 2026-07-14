@@ -65,9 +65,9 @@ export default function AdminEditor() {
     } finally { setSaving(false); }
   };
 
-  if (loading) return <div className="min-h-screen grid place-items-center bg-slate-50"><Loader2 className="h-8 w-8 animate-spin text-teal" /></div>;
+  if (loading) return <div className="min-h-screen grid place-items-center bg-slate-50"><Loader2 className="h-8 w-8 animate-spin text-gold" /></div>;
 
-  const field = "w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal";
+  const field = "w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold";
   const label = "block text-sm font-medium text-slate-700 mb-1";
 
   return (
@@ -78,7 +78,7 @@ export default function AdminEditor() {
           <Link to="/admin/posts" className="inline-flex items-center gap-1.5 text-sm text-slate-300 hover:text-white"><ArrowLeft className="h-4 w-4" /> Back to posts</Link>
           <div className="flex items-center gap-2">
             <button onClick={() => save("draft")} disabled={saving} data-testid="admin-save-draft" className="rounded-lg bg-white/10 px-3 py-1.5 text-sm hover:bg-white/20 transition-colors disabled:opacity-60">Save Draft</button>
-            <button onClick={() => save("published")} disabled={saving} data-testid="admin-post-publish-button" className="inline-flex items-center gap-1.5 rounded-lg bg-teal px-3 py-1.5 text-sm font-semibold hover:bg-[#0b8b8a] transition-colors disabled:opacity-60">{saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />} Publish</button>
+            <button onClick={() => save("published")} disabled={saving} data-testid="admin-post-publish-button" className="inline-flex items-center gap-1.5 rounded-lg bg-gold px-3 py-1.5 text-sm font-semibold hover:bg-[#a3831f] transition-colors disabled:opacity-60">{saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />} Publish</button>
           </div>
         </div>
       </header>
@@ -109,7 +109,7 @@ export default function AdminEditor() {
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
-          <div className="flex items-center justify-between"><label className={label + " mb-0"}>FAQ Schema (optional)</label><button onClick={addFaq} data-testid="editor-add-faq" className="inline-flex items-center gap-1 text-sm font-semibold text-teal"><Plus className="h-4 w-4" /> Add FAQ</button></div>
+          <div className="flex items-center justify-between"><label className={label + " mb-0"}>FAQ Schema (optional)</label><button onClick={addFaq} data-testid="editor-add-faq" className="inline-flex items-center gap-1 text-sm font-semibold text-gold"><Plus className="h-4 w-4" /> Add FAQ</button></div>
           <p className="mt-1 text-xs text-slate-400">Adds an FAQ accordion + FAQPage structured data to the post.</p>
           <div className="mt-4 space-y-3">
             {form.faqs.map((q, i) => (

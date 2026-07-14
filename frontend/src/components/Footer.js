@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { BUSINESS, COMMERCIAL_LINKS } from "@/lib/business";
 
 export const Footer = () => {
@@ -7,10 +8,8 @@ export const Footer = () => {
     <footer className="bg-navy-ink text-slate-300" data-testid="site-footer">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-2 text-white">
-            <span className="font-display text-lg font-semibold">Lighthouse Insurance</span>
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-slate-400">
+          <Logo light markClass="h-11 w-auto" />
+          <p className="mt-4 text-sm leading-relaxed text-slate-400">
             Your trusted independent insurance agency in Sunrise, Florida — personalized coverage across multiple carriers.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/5 px-3 py-1.5 text-sm">
@@ -23,10 +22,10 @@ export const Footer = () => {
         <div>
           <h3 className="font-display text-white font-semibold mb-3">Contact</h3>
           <address className="not-italic space-y-2 text-sm">
-            <div className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-teal shrink-0" /><span>{BUSINESS.street}<br/>{BUSINESS.cityStateZip}</span></div>
-            <a href={BUSINESS.phoneHref} data-testid="footer-phone" className="flex gap-2 hover:text-white transition-colors"><Phone className="h-4 w-4 text-teal shrink-0" />{BUSINESS.phone}</a>
-            <a href={BUSINESS.emailHref} className="flex gap-2 hover:text-white transition-colors"><Mail className="h-4 w-4 text-teal shrink-0" />{BUSINESS.email}</a>
-            <div className="flex gap-2"><Clock className="h-4 w-4 mt-0.5 text-teal shrink-0" /><span>{BUSINESS.hours}</span></div>
+            <div className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 text-gold shrink-0" /><span>{BUSINESS.street}<br/>{BUSINESS.cityStateZip}</span></div>
+            <a href={BUSINESS.phoneHref} data-testid="footer-phone" className="flex gap-2 hover:text-white transition-colors"><Phone className="h-4 w-4 text-gold shrink-0" />{BUSINESS.phone}</a>
+            <a href={BUSINESS.emailHref} className="flex gap-2 hover:text-white transition-colors"><Mail className="h-4 w-4 text-gold shrink-0" />{BUSINESS.email}</a>
+            <div className="flex gap-2"><Clock className="h-4 w-4 mt-0.5 text-gold shrink-0" /><span>{BUSINESS.hours}</span></div>
           </address>
         </div>
 
