@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Phase 1: Get design guidelines (match current navy #1f3549 professional look)",
+    "status": "in_progress"
+  },
+  {
+    "content": "Phase 1: Backend - blog CRUD, admin auth (password+JWT), contact storage, seed 4 posts",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Frontend - layout/header/footer with exact NAP + Commercial Insurance nav dropdown",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Custom <Seo> component (title, meta, canonical, JSON-LD) + global InsuranceAgency schema",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Pages - Home, About, Services (with trucking/cargo/owner-op/fleet), Reviews, Contact (ZIP 33351)",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Trucking pillar, Cargo, Owner-Operator pages (SEO titles/meta/H1-H2/CTAs/internal links)",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Blog list + post detail (FAQ schema) + Admin dashboard (login, create/edit/publish)",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: sitemap.xml + robots.txt static assets; hosting redirect rules doc",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: End-to-end testing via testing_agent + fixes",
+    "status": "pending"
+  }
+]
