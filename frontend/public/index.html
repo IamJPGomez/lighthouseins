@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
+        <meta name="theme-color" content="#1f3549" />
+        <meta name="description" content="Lighthouse Insurance, Inc. — independent insurance agency in Sunrise, FL. Personal auto, home, commercial auto, trucking, cargo & owner-operator insurance. Call (954) 584-3417." />
+        <link rel="canonical" href="https://lighthouseinsgroup.com/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
         <!--
         manifest.json provides metadata used when your web app is installed on a
         user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -21,7 +22,54 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run build`.
         -->
-        <title>Emergent | Fullstack App</title>
+        <title>Lighthouse Insurance, Inc. | Sunrise, FL Insurance Agency</title>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "InsuranceAgency",
+          "@id": "https://lighthouseinsgroup.com/#organization",
+          "name": "Lighthouse Insurance, Inc.",
+          "url": "https://lighthouseinsgroup.com",
+          "telephone": "+1-954-584-3417",
+          "email": "luis@lhinsur.com",
+          "image": "https://lighthouseinsgroup.com/lighthouse-logo.svg",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10242 NW 47th St, Suite 10",
+            "addressLocality": "Sunrise",
+            "addressRegion": "FL",
+            "postalCode": "33351",
+            "addressCountry": "US"
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": 26.1789, "longitude": -80.2861 },
+          "areaServed": [
+            { "@type": "State", "name": "Florida" },
+            { "@type": "City", "name": "Sunrise" },
+            { "@type": "City", "name": "Fort Lauderdale" },
+            { "@type": "City", "name": "Miami" }
+          ],
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00", "closes": "17:00"
+          }],
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "17" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Insurance Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personal Auto Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Homeowners Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Auto Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trucking Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motor Truck Cargo Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Owner-Operator Insurance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fleet Insurance" } }
+            ]
+          }
+        }
+        </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
     </head>
