@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Seo from "@/components/Seo";
 import { Breadcrumbs } from "@/components/shared";
 import { api } from "@/lib/api";
